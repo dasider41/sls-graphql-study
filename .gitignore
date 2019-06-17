@@ -8,4 +8,7 @@ jspm_packages
 # Webpack directories
 .webpack
 
+# local DynamoDB directories
+.dynamodb
+
 package-lock.json
