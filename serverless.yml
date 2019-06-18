@@ -36,14 +36,12 @@ provider:
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 functions:
-  first:
-    handler: first.hello
-  second:
-    handler: second.hello
+  graphql:
+    handler: handler.query
     events:
       - http:
-          method: get
-          path: second
+          path: query
+          method: post
 
 resources:
   Resources:
