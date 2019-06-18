@@ -2,7 +2,7 @@
 
 ## Stack
 
-- node
+- Node
   (https://nodejs.org/)
 
 - Serverless
@@ -17,20 +17,25 @@
 ## Serverless Plugins
 
 - ecma script template
+
   `sls create --template aws-nodejs-ecma-script --path dev-pro-sls`
 
 - serverless-offline
+
   `npm install --save-dev serverless-offline`
+
   `sls offline start`
 
 - serverless-dynamodb-local
+
   `npm install --save-dev serverless-dynamodb-local`
+
   `sls dynamodb install`
 
 ## TODO
 
 - [x] ES6,7
-- [ ] apollo
+- [x] apollo
 - [ ] prisma
 - [ ] typescript
 - [ ] test code
