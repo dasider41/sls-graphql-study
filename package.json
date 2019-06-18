@@ -19,6 +19,7 @@
   "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
   "license": "MIT",
   "dependencies": {
-    "graphql": "^14.3.1"
+    "graphql": "^14.3.1",
+    "uuid": "^3.3.2"
   }
 }
