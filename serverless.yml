@@ -41,10 +41,10 @@ provider:
 
 functions:
   graphql:
-    handler: handler.query
+    handler: handler.graphql
     events:
       - http:
-          path: query
+          path: graphql
           method: post
 
 resources:
