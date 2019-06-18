@@ -10,6 +10,6 @@ export const view = async user => {
     const result = await dynamoDb.get(params).promise();
     return result.Item;
   } catch (err) {
-    return {};
+    console.log(err);
   }
 };

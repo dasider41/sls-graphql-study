@@ -1,30 +1,35 @@
-import { buildSchema } from "graphql";
+import { gql } from "apollo-server-lambda";
 
 import { create } from "./resolvers/create";
 import { view } from "./resolvers/view";
 
-export const schema = buildSchema(`
+export const typeDefs = gql`
   type Query {
+    hello: String
     getUser(id: String!): User
+  }
+
+  type User {
+    id: String!
+    name: String
+    created_at: String
   }
 
   type Mutation {
     createUser(input: UserInput): User
   }
 
-  type User {
-    id: String!
-    name: String
-    updated_at: String
-    created_at: String
-  }
-
   input UserInput {
     name: String
   }
-`);
+`;
 
 export const resolvers = {
-  getUser: id => view(id),
-  createUser: arg => create(arg)
+  Query: {
+    hello: () => "Hello Apollo!!",
+    getUser: (_, args) => view(args)
+  },
+  Mutation: {
+    createUser: (_, args) => create(args.input)
+  }
 };

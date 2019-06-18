@@ -1,23 +1,23 @@
 import { dynamoDb, TABLE_NAME } from "../dbConnection";
 import uuid from "uuid/v1";
 
-export const create = async arg => {
+export const create = async input => {
   const TIME_STAMP = new Date().getTime();
-  const newUser = {
+  const NEW_USER = {
     id: uuid(),
-    name: arg.input.name,
+    name: input.name,
     update_at: TIME_STAMP,
     created_at: TIME_STAMP
   };
   const params = {
     TableName: TABLE_NAME,
-    Item: newUser
+    Item: NEW_USER
   };
 
   try {
-    const result = await dynamoDb.put(params).promise();
-    return newUser;
+    const res = await dynamoDb.put(params).promise();
+    return res ? NEW_USER : {};
   } catch (err) {
-    return {};
+    console.log(err);
   }
 };

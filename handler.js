@@ -1,7 +1,5 @@
-import { graphql } from "graphql";
-import { schema, resolvers } from "./schema";
+import { ApolloServer } from "apollo-server-lambda";
+import { typeDefs, resolvers } from "./schema";
 
-export const query = async event => {
-  const res = await graphql(schema, event.body, resolvers);
-  return { statusCode: 200, body: JSON.stringify(res) };
-};
+const server = new ApolloServer({ typeDefs, resolvers });
+export const query = server.createHandler();
