@@ -18,10 +18,14 @@ custom:
       port: 8888
     migration:
       dir: migrations
+  webpack:
+    includeModules: true
 
 provider:
   name: aws
   runtime: nodejs10.x
+  profile: aws-jw
+  region: ap-southeast-2
   environment:
     DYNAMODB_TABLE: ${self:service}-${self:provider.stage}
   iamRoleStatements:
