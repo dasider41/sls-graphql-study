@@ -15,8 +15,8 @@ export const create = async input => {
   };
 
   try {
-    const res = await dynamoDb.put(params).promise();
-    return res ? NEW_USER : {};
+    await dynamoDb.put(params).promise();
+    return NEW_USER;
   } catch (err) {
     console.log(err);
   }
